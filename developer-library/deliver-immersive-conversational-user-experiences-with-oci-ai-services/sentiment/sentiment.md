@@ -1,4 +1,6 @@
-## Respond to the feedback Sentiment
+## TODO
+
+## Task 1: Respond to the feedback Sentiment
 Let’s now extend the basic NLP functionality of the Digital Assistant to take advantage of the OCI AI services defined earlier
 
 1. Navigate to the Flow Designer page for your skill.
@@ -11,7 +13,7 @@ Let’s now extend the basic NLP functionality of the Digital Assistant to take 
 | Description | Flow to collect customer feedback on Pizza & service |
 | Intent Name | pizza.reg.giveFeedback |
 
-![](images/sentiment1.png =50%x*  "")
+![](images/sentiment1.png =30%x*  "")
 
 - Check **“open created flow afterwards”** and click **[Create]**
 			
@@ -64,7 +66,7 @@ ${rb('PromptForFeedback.message')}
 				
 7. In the **“CallSentimentService”** component palette select the **“DetectSentiment”** REST service from the dropdown list.
 
-![](images/sentiment5.png =60%x*  "")
+![](images/sentiment5.png =30%x*  "")
 
 
 8. Select the POST method from the Methods dropdown list.
@@ -98,19 +100,19 @@ ${rb('PromptForFeedback.message')}
 
 12. Navigate to the **“Transitions”** tab at the top of the **“CallSentimentService”** component Palette.
 	
-13. Click on the <img src="./images/add_action_icon.png"> next to the “Action” to enter the appropriate Transitions based on the outcome of the REST Service call.
+13. Click on the ![](../images/add.png =1%x*  "")next to the “Action” to enter the appropriate Transitions based on the outcome of the REST Service call.
 
     **Note:**  HTTP Status codes 2xx map to “Success”, 4xx|5xx map to “failure” in the defined REST Component
 
 
 14. Select **“failure”** from the **“Action Name”** dropdown list.
 
-    ![](images/sentiment6.png =60%x*  "")
+    ![](images/sentiment6.png =20%x*  "")
 
 
 15. Select **“Add State”** from the **“Transition To”** dropdown list.
 
-   ![](images/sentiment7.png =60%x*  "")
+   ![](images/sentiment7.png =20%x*  "")
 
 16. Add a **“Send Message”** component to the flow to indicate an invalid REST service call.
 
@@ -120,7 +122,7 @@ ${rb('PromptForFeedback.message')}
 | Description | Unsuccessful REST Request Message |
 		
 
-![](images/sentiment8.png =60%x*  "")
+![](images/sentiment8.png =20%x*  "")
 
 Click **[Insert]** button to add component to the flow.
 	
@@ -137,7 +139,7 @@ Click **[Insert]** button to add component to the flow.
 	
 19. Select the **"CallSentimentService"** state in the Flow to expose its component palette. Navigate to the **“Transitions”** tab.
 	
-20. Click on the <img src="./images/add_action_icon.png"> again (next to Action) to enter another Transition based on the outcome of the REST Service call.
+20. Click on the ![](../images/add.png =1%x*  "") again (next to Action) to enter another Transition based on the outcome of the REST Service call.
 	
 21. Select **“success”** from the **“Action Name”** dropdown list.
 	
@@ -149,13 +151,13 @@ Click **[Insert]** button to add component to the flow.
 | Description | Calling a predefined flow to respond to the sentiment within the user’s feedback |
 		
 
-![](images/sentiment9.png =60%x*  "")
+![](images/sentiment9.png =20%x*  "")
 
 23. Select the **“RespondToFeedback”** state in the flow and navigate to the component tab
 	
 24. Select the **“respond.to.feedback”** flow from the choice of available flows in the dropdown list.
 	
-25. Click on the <img src="./images/add_action_icon.png"> next to the **“Input Parameters”** to specify the data to be passed to the **“respond.to.feedback”** flow.  In this case we want to pass in the ‘sentiment’ extracted from the feedback previously entered.
+25. Click on the ![](../images/add.png =1%x*  "") next to the **“Input Parameters”** to specify the data to be passed to the **“respond.to.feedback”** flow.  In this case we want to pass in the ‘sentiment’ extracted from the feedback previously entered.
 	
 26. Choose the **"sentiment"** parameter from the dropdown list.
 	
@@ -164,14 +166,14 @@ Click **[Insert]** button to add component to the flow.
 	```
     ${AIServicePayload.value.responsePayload.documents[0].documentSentiment}
     ```
-![](images/sentiment10.png =60%x*  "")
+![](images/sentiment10.png =20%x*  "")
 
 	- Click the <img src="./images/Save.png"> (tick) to save the parameter definition.
 			
 	Now to associate the flow with the user’s intent to give feedback on the Pizza and/or service.
 
 	
-28. Select **“Main Flow”** in the main list of flows and click on the <img src="./images/add_action_icon.png"> next to the **“Intent Events”** to map the correct intent to the **“collect.feedback”**.
+28. Select **“Main Flow”** in the main list of flows and click on the ![](../images/add.png =1%x*  "") next to the **“Intent Events”** to map the correct intent to the **“collect.feedback”**.
 
 | Property | Value |
 | ----------- | ----------------- |
@@ -179,7 +181,7 @@ Click **[Insert]** button to add component to the flow.
 | Mapped Flow | collect.feedback |
 		
 
-![](images/sentiment11.png =60%x*  "")
+![](images/sentiment11.png =20%x*  "")
 
 - Click **[Create]**
 			

@@ -1,4 +1,4 @@
-
+## TODO
 ## Task 1: Granting Access to OCI AI services
 For the Digital Assistant to advantage of the additional AI services available within the OCI environment, it is necessary to first grant the Digital Assistant itself access to the various AI Services APIs and REST endpoints.  This is achieved by applying the appropriate security policy within your OCI Tenancy.
 

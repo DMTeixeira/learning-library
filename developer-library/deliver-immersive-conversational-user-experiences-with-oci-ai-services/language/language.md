@@ -1,4 +1,6 @@
 
+## TODO
+
 ## Respond to the user if their utterance is in a Foreign Language
 <p>While the Oracle Digital Assistant implements a sophisticated multi-lingual NLP engine, that natively supports a range of languages, there is likely to be the need to respond accordingly if the language used is not one supported natively.  That is, notifying the user that the bot is not able to understand the given language.	
 <p>To detect which language was entered, and subsequently print it out in the message to the user, the Digital Assistant can again utilise the OCI AI-Language APIs.  In this case using the **“DetectLanguage”** API.
@@ -58,7 +60,7 @@
 9. Navigate to the **“Transitions”** tab at the top of the **“CallLanguageService”** component Palette.
 
 
-10. Click on the <img src="./images/add_action_icon.png"> next to the **“Action”** to enter the appropriate Transitions based on the outcome of the REST Service call.
+10. Click on the ![](../images/add.png =1%x*  "") next to the **“Action”** to enter the appropriate Transitions based on the outcome of the REST Service call.
 
 	
 11. Select **“failure”** from the **“Action Name”** dropdown list.
@@ -86,7 +88,7 @@
 16. Select the **“CallLanguageService”** state in the Flow to expose its component palette and navigate to the **“Transitions”** tab.
 
 	
-17. Click on the <img src="./images/add_action_icon.png"> next to the “Action” to enter another Transition based on the outcome of the REST Service call.
+17. Click on the ![](../images/add.png =1%x*  "") next to the “Action” to enter another Transition based on the outcome of the REST Service call.
 
 	
 18. Select **“success”** from the **“Action Name”** dropdown list.
@@ -102,7 +104,7 @@
 
 20. Select the **“respond.to.language”** flow from the choice of available flows in the dropdown list.
 
-21. Click on the <img src="./images/add_action_icon.png"> next to the **“Input Parameters”** to specify the data to be passed to this flow.  In this case we want to pass in the ‘language’ that was detected in the utterance.
+21. Click on the ![](../images/add.png =1%x*  "") next to the **“Input Parameters”** to specify the data to be passed to this flow.  In this case we want to pass in the ‘language’ that was detected in the utterance.
 
 22. Choose the **"language"** parameter from the dropdown list.
 
@@ -110,7 +112,7 @@
 
         `${AIServicePayload.value.responsePayload.languages[0].name}`
 
-	- Click the <img src="./images/Save.png"> ("Tick") to save the parameter definition
+	- Click the ![](../images/save.png =1%x*  "") ("Tick") to save the parameter definition
 			
 24. To ensure this flow is executed if the user enters an utterance in a language for which the Bot has not been trained.
 

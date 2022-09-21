@@ -1,9 +1,5 @@
-	
-<!-- 
-====================================================================
-= CREATE SKILL LEVEL VARIABLES                                     =
-====================================================================
--->
+## TODO
+
 ## Task 1: Build the Answer Intent Flow
 
 
@@ -30,6 +26,7 @@ You're going to start off by declaring a variable for the cbe.pizza entity.  Thi
 | Name | pizza |
 | Description | Resolves the pizza menu. |
 | Variable Type | Select **Entity** as the variable type, then select **cbe.pizza** as the entity name |
+{: title="Pizza variable"}
 
 
 5. Click **[Apply]**
@@ -47,6 +44,7 @@ In this step, you're going to create an answer intent that handles user question
 | ----------- | ----------------- |
 | Name | pizza.ans.genericHandler |
 | Description | Generic answer intent flow.  |
+{: title="Answer flow name"}
  
 
 3. In the dialog flow editor, hover over the Start node, click the menu  , then click **Add start state**.
@@ -62,18 +60,18 @@ In this step, you're going to create an answer intent that handles user question
 | Name | Accept the default name (displayIntentAnswer). |
 | Description | General answer |
 
-![](images/displayintentans.png =60%x*  "")
+![](images/displayintentans.png =40%x*  "")
 
 When you're done, the flow should include the **displayIntentAnswer**displayIntentAnswer state:
 
-![](images/displayintentans2.png =30%x*  "")
+![](images/displayintentans2.png =20%x*  "")
 
 
 6. Select the **displayIntentAnswer** state in the flow to open its property inspector.
 
 7. Click **Component** in the property inspector. Then click **Edit Response Items**.
 
-![](images/editresponse.png =30%x*  "")
+![](images/editresponse.png =20%x*  "")
 
 8. Take a look at the Apache FreeMarker expression in the text property that generates a default message based on the answer intent:
 
@@ -93,7 +91,7 @@ This expression references the following resource bundles to enable the skill to
  - systemFlowName_ -- Resource bundle for conversation name strings.
  - answerIntentIntroMessage2 -- Here's your answer:
 
- ![](images/editmetadata.png =50%x*  "")
+ ![](images/editmetadata.png =40%x*  "")
 
 
 
@@ -109,15 +107,15 @@ You've completed the answer intent flow, but it can't yet display any answers. T
 
 2. If it's not already open, click **Events**.
 
-3. Click ![](images/add_action_icon.png =2%x*  "") next to Built-In Events.
+3. Click ![](images/add_action_icon.png =1%x*  "") next to Built-In Events.
 
-![](images/ans1.png =20%x*  "")
+![](images/ans1.png =10%x*  "")
 
 4. Select **Answer Intent** from the Unhandled Event Type list.
 
 5. Select **pizza.ans.genericHandler** as the mapped flow. Then click Create.
 
-![](images/ans2.png =30%x*  "")
+![](images/ans2.png =20%x*  "")
 
 
 <!-- 
@@ -133,7 +131,7 @@ Now we'll use the Skill Tester to make sure that the intent is resolved correctl
  - Click **Train**
 
 
-![](images/Train.png =50%x*  "")
+![](images/Train.png =30%x*  "")
 
  - Choose **Trainer Tm**, then click **[Submit]**	
 
@@ -141,18 +139,18 @@ Now we'll use the Skill Tester to make sure that the intent is resolved correctl
 2. Click **Preview** to open the Skill Tester.
 
 
-![](images/Preview.png =50%x*  "")
+![](images/Preview.png =30%x*  "")
 
 
 3. Enter _How many calories?_
 
-![](images/calories.png =60%x*  "")
+![](images/calories.png =50%x*  "")
 
 4. Click **Reset**, then enter _Can I get a vegetarian pizza?_
 
 5. For both of these responses, take a look at the traversal from the Main Flow to the **displayIntentAnswer** state of the **pizza.ans.genericHandler** flow.
 
-![](images/answergeneric.png =40%x*  "")
+![](images/answergeneric.png =30%x*  "")
 
 6. When you're done, click Reset and then close the Skill Tester.
 
@@ -178,7 +176,7 @@ In this step, you're going to create the skill's primary flow.
 | Description | pizza.reg.orderPizza |
 
 
-![](images/createflow.png =50%x*  "")
+![](images/createflow.png =30%x*  "")
  
 - Check **“open created flow afterwards”** and click **[Create]**
 
@@ -195,7 +193,7 @@ In this step, you're going to declare a variable for the **cbe.confirmation** en
 1. Click on the **intent.reg.order** flow in the list the **Configuration** Tab
 
 
-![](images/conf.png =40%x*  "")
+![](images/conf.png =30%x*  "")
 
 2. Click **Add Variable** and complete the dialog with the following values, then click **[Apply]**
 
@@ -242,7 +240,7 @@ For this short flow, you'll create a state for the skill-scoped composite bag pi
 ${rb('pizza.messages.orderPizzaStart')}
 ```
 
-![](images/build2.png =50%x*  "")
+![](images/build2.png =30%x*  "")
 
 6. Hover over the Start node, click the menu ![](../images/dots.png =2%x*  ""), then click **Add state**.
 
@@ -258,20 +256,20 @@ ${rb('pizza.messages.orderPizzaStart')}
 
 Note the next transition line that's inserted automatically as you add states.
 
-![](images/build4.png =50%x*  "")
+![](images/build4.png =30%x*  "")
 
 8. In the Component page, select **pizza** as the composite bag entity variable.
 
-![](images/build5.png =50%x*  "")
+![](images/build5.png =30%x*  "")
 
-9. Click the menu <img src=./images/menu_icon.png"> in the **resolvePizza** state, then click **Add state** and select a **Send Message Component**.
+9. Click the menu in the **resolvePizza** state, then click **Add state** and select a **Send Message Component**.
 
 10. Fill in the properties as below and click **[Insert]**
 
-        | Property | Value |
-        | ----------- | ----------------- |
-        | Name | confirmMessage |
-        | Description | Confirmation Messages |
+| Property | Value |
+| ----------- | ----------------- |
+| Name | confirmMessage |
+| Description | Confirmation Messages |
 		
 11. In the Component page of the property inspector, reference the confirmation message resource bundle:
 
@@ -282,7 +280,7 @@ Note the next transition line that's inserted automatically as you add states.
 
 	<p>When you're done, the flow should look like this:
 
-![](images/build6.png =50%x*  "")
+![](images/build6.png =30%x*  "")
 
 
 <!-- 
@@ -291,35 +289,21 @@ Note the next transition line that's inserted automatically as you add states.
 ====================================================================
 -->
 ## Task 4: Test Out The Order Pizza Flow
-<p>Now we're going to test out the flow so far.
-
-
+Now we're going to test out the flow so far.
 1. Open the Skill Tester.
-![](images/Preview.png =50%x*  "")
-	
 
-
+![](images/Preview.png =30%x*  "")
 
 2. Enter _Order pizza_. Then complete the order by selecting the pizza type and size
-![](images/test1.png =50%x*  "")
-
+![](images/test1.png =40%x*  "")
 
 3. Note the routing from the Main Flow to the **intent.reg.order** flow and the subsequent traversal from the **startPizzaOrder** state to the **confirmMessage** state.
-
-![](images/test2.png =50%x*  "")
-
+![](images/test2.png =20%x*  "")
 
 4. Click **Reset** and then close the Skill Tester.
-
 In this step, you learned how to create an intent event flow that references a skill-level variable and resource bundles.
 
 
-
-<!-- 
-====================================================================
-= CALL ANOTHER FLOW                                                =
-====================================================================
--->
 ## Task 5: Call Another Flow
 To handle the situation where a user decides to cancel their order before it is sent, you're going to branch the conversation to the pre-existing cancel order flow, **intent.reg.cancelOrder** (accessed by clicking **Flows > intent.reg.cancelOrder** in the left navbar). This simple flow outputs _"All right, you can peacefully forget about your pizza."_ using a Send Message state that references the **pizza.messages.cancelOrder** resource bundle.	
 
@@ -328,7 +312,7 @@ To handle the situation where a user decides to cancel their order before it is 
 
 <p>If you were writing the dialog definition in YAML instead of the Visual Flow Designer, the order pizza and cancel pizza flows would be part of a monolithic block of code. Because of the modular approach afforded by the Visual Flow Designer, you create separate flows which you link together.
 
-1. Hover over the next transition line between the **resolvePizza** and the **confirmMessage** states. Then click <img src="./images/add_state_to_transition.icon" > to add a state to the next transition.
+1. Hover over the next transition line between the **resolvePizza** and the **confirmMessage** states. Then click ![](../images/add.png =1%x*  "") to add a state to the next transition.
 
 ![](images/call2.png =50%x*  "")
 
@@ -337,10 +321,10 @@ To handle the situation where a user decides to cancel their order before it is 
 
 2. From the Add State dialog, select the Resolve Entity template by selecting **User Messaging > Resolve Entities > Resolve Entity**, or by entering resolve entity in the Search field.
 
-![](images/call3.png =50%x*  "")
+![](images/call3.png =20%x*  "")
 
 
-	- Set the properties as follows
+- Set the properties as follows
 	
 | Property | Value |
 | ----------- | ----------------- |
@@ -348,7 +332,7 @@ To handle the situation where a user decides to cancel their order before it is 
 | Description | Resolves the confirmation Entity |
 	
 
-![](images/call3.png =50%x*  "")
+![](images/call3.png =20%x*  "")
 
 
 3. In the Component page of the property inspector for the **confirmSelection** state, choose **confirmation** as the flow-scope variable.
@@ -357,7 +341,7 @@ To handle the situation where a user decides to cancel their order before it is 
 
 
 
-4. Hover over the next transition line that's between the **confirmSelection** state and the **confirmMessage** state, then click <img src="./images/add_state_to_transition.icon.png">
+4. Hover over the next transition line that's between the **confirmSelection** state and the **confirmMessage** state, then click ![](../images/add.png =1%x*  "")
 
 
 5. Choose **Flow Control**, then choose **Invoke Flow**.  Define the properties as below and click **[Insert]** to add the component to the flow.
@@ -371,12 +355,10 @@ To handle the situation where a user decides to cancel their order before it is 
 
 
 6. In Component page, select **intent.reg.cancelOrder**, the cancel order flow, as the flow that will be called when the dialog transitions to this state. If you were passing values like pizza size and pizza toppings to the cancel order flow, then you'd also define input parameters for this component.
-	<img src="./images/ODA-Bot-Avatar.gif" width="50px">
 
 
 
-
-7. Hover over the next transition line between the **confirmSelection** and **cancelCurrentOrder** states and click <img src="./images/add_state_to_transition.icon.png"> once again to add another component.
+7. Hover over the next transition line between the **confirmSelection** and **cancelCurrentOrder** states and click ![](../images/add.png =1%x*  "") once again to add another component.
 
 
 8. Choose **Flow Control**, then **Switch**. Define the properties as below and click **[Insert]** to add the component to the flow.
@@ -386,7 +368,6 @@ To handle the situation where a user decides to cancel their order before it is 
 | Name | routeSelection |
  Description | Branches Conversation |
 	
-<img src="./images/ODA-Bot-Avatar.gif" width="50px">
 
 
 9. In the Component page of the property inspector for the routeSelection state
@@ -400,8 +381,6 @@ To handle the situation where a user decides to cancel their order before it is 
 	```
 
 
-	<img src="./images/ODA-Bot-Avatar.gif" width="50px">
-
     - Click outside the field to accept the input.
 
 
@@ -410,28 +389,27 @@ To handle the situation where a user decides to cancel their order before it is 
 
 11. Select **End Flow (implicit)** as the Next Transition.
 
-	<img src="./images/ODA-Bot-Avatar.gif" width="50px">
 
 
-12. Click on the <img src="./images/add_action_icon.png"> next to the “Action” to enter the appropriate transition when the value of the Confirmation variable is **YES**.
+
+12. Click on the ![](../images/add.png =1%x*  "") next to the “Action” to enter the appropriate transition when the value of the Confirmation variable is **YES**.
 	
     - For Action Name, enter **Yes**
 	- For Transition to, select **ConfirmMessage**.
-	- Click Save <img src="./images/save.png">.
+	- Click Save ![](../images/save.png =1%x*  "").
 	
-13. Click on the <img src="./images/add_action_icon.png"> again to enter transition when the value of the Confirmation variable is **NO**
+13. Click on the ![](../images/add.png =1%x*  "") again to enter transition when the value of the Confirmation variable is **NO**
 
     - For Action Name, enter **No**
 	- For Transition to, select **ConfirmMessage**.
-	- Click Save <img src="./images/save.png">.
+	- Click Save ![](../images/save.png =1%x*  "").
 
-	<img src="./images/ODA-Bot-Avatar.gif" width="50px">
+	
 
 	
 	At this point, the flow should look like this. Note the No and Yes transitions branching from the **routeSelection** state. Note also that there's a next transition wired to the **cancelCurrentOrder** state
 
 	
-        <img src="./images/ODA-Bot-Avatar.gif" width="50px">
 
 
 14. To prevent a transition from the **cancelCurrentOrder** state to the **confirmMessage** state:
@@ -442,7 +420,6 @@ To handle the situation where a user decides to cancel their order before it is 
 	
 	When you're done, the flow should look like this:
 
-	<img src="./images/ODA-Bot-Avatar.gif" width="50px">
 
 
 	This completes this flow..
@@ -458,12 +435,12 @@ To handle the situation where a user decides to cancel their order before it is 
 1. Repeat the prior conversation in the Skill Tester for both the Yes and No options.
 
     - Open the Skill Tester.
-	  <img src="./images/Preview.png" width="50px">
+	 ![](images/Preview.png =30%x*  "")
 
     - Enter _**Order pizza**_. Then complete the order by selecting the pizza type and size
 	
     - When you reach the **confirmSelection** state, choose **Yes**.
-	 <img src="./images/Preview.png" width="50px">
+
 
 	The conversation routes from the Main Flow to the **intent.reg.OrderPizza** flow and culminates in the **confirmMessage** state.
 	
@@ -471,7 +448,6 @@ To handle the situation where a user decides to cancel their order before it is 
 	
     - When you reach the **confirmSelection** state, choose **No**.
 
-		<img src="./images/Preview.png" width="50px">
 
 	The conversation gets routed from the Main Flow, through the **intent_reg.orderPizza** flow, and then finally to the **intent.reg.cancelOrderflow** because of the “No” answer given for the confirmSelection state.
 	
